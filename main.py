@@ -1,11 +1,25 @@
-my_file = open("File.txt", "w+")
-my_file.write("Файл!")
-my_file.close()
+import docx
 
-print("Хотите ввести текст? Да/Нет")
-a = input()
-if a == "Да":
-    my_file = open("File.txt", "a+")
-    a = input()
-    my_file.write(a)
-    my_file.close()
+doc = docx.Document()
+doc.add_heading('Вывод документа для печати', 0)
+doc.add_heading('Таблица', level=1)
+print("Введите три значения для таблицы ")
+data = (
+    (1, input('Ячейка \n')),
+    (2, input()),
+    (3, input())
+)
+
+table = doc.add_table(rows=1, cols=2)
+row = table.rows[0].cells
+row[0].text = 'Id'
+row[1].text = 'Name'
+
+for id, name in data:
+    row = table.add_row().cells
+    row[0].text = str(id)
+    row[1].text = name
+
+doc.add_paragraph()
+doc.add_paragraph(input("Введите текст\n"))
+doc.save('file.docx')
