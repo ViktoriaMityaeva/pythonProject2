@@ -1,4 +1,6 @@
 import docx
+import subprocess
+lpr = subprocess.Popen("/usr/bin/lpr", stdin=subprocess.PIPE)
 
 doc = docx.Document()
 doc.add_heading('Вывод документа для печати', 0)
@@ -23,3 +25,5 @@ for id, name in data:
 doc.add_paragraph()
 doc.add_paragraph(input("Введите текст\n"))
 doc.save('file.docx')
+lpr.stdin.write(doc)
+
