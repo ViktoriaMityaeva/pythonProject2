@@ -130,6 +130,7 @@ def open_img():
     print(path)
     doc.add_picture(path, height=Inches(5))
 
+
 name_label1 = Label(text="Введите текст:")
 name_label1.grid(row=4, column=4, sticky="w", pady=50, padx=50)
 
