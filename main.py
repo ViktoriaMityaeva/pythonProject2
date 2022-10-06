@@ -120,7 +120,7 @@ def open_img():
     x = openfilename()
     img = Image.open(x)
     size = 250, 250
-    img = img.resize(size, Image.Resampling.LANCZOS)
+    img = img.resize(size, Image.LANCZOS)
     img = ImageTk.PhotoImage(img)
     panel = Label(root, image=img)
     panel.image = img
@@ -129,7 +129,6 @@ def open_img():
     path = os.path.realpath(x)
     print(path)
     doc.add_picture(path, height=Inches(5))
-
 
 name_label1 = Label(text="Введите текст:")
 name_label1.grid(row=4, column=4, sticky="w", pady=50, padx=50)
