@@ -115,7 +115,6 @@ def openfilename():
     filename = filedialog.askopenfilename(title='"pen')
     return filename
 
-
 def open_img():
     x = openfilename()
     img = Image.open(x)
